@@ -11,7 +11,8 @@ angular.module('list', []).controller('listController', function($scope) {
         name: '',
         description: '',
         quantity: 0,
-        price: 0
+        price: 0,
+        bought: false
     };
 
     $scope.addItem =function(){
@@ -25,11 +26,17 @@ angular.module('list', []).controller('listController', function($scope) {
 
     };
 
+    $scope.boughtItem = function(){
+
+
+    }
+
     $scope.add_button = function(){
         $scope.add = !$scope.add;
     }
     $scope.edit_button = function(){
         $scope.edit = !$scope.edit;
+
     };
 });
 

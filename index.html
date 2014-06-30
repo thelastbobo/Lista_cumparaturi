@@ -9,21 +9,22 @@
             <div >
                     <h2 >Lista Cumparaturi</h2>
             </div>
-            <div>
-                <span ng-repeat="prod in products"  >
-                    <ul>    {{prod.name}}
-                            {{prod.description}}
-                            {{prod.quantity}}
-                            {{prod.price}}
-                            <button id="edit" type="button" ng-click="edit_button()">Edit</button>
+            <div  ng-repeat="prod in products">
+                <span >
+                     <ul><input type = "checkbox" />
+                        {{prod.name}}
+                        {{prod.description}}
+                        {{prod.quantity}}
+                        {{prod.price}}
+                        <button id="edit" type="button" ng-click="edit_button()">Edit</button>
                     </ul>
-                    <span ng-show = "edit">
+                </span>
+                <span ng-show = "edit">
                     Name:       <input type = "text" ng-model = "prod.name" />
                     Description:<input type = "text" ng-model = "prod.description"/>
                     Quantity:   <input type = "number" ng-model = "prod.quantity"/>
                     Price:      <input type = "number" ng-model = "prod.price"/>
-                    </span>
-                </span>
+                 </span>
 
             </div>
             <div>

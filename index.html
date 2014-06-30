@@ -11,7 +11,7 @@
             </div>
             <div  ng-repeat="prod in products">
                 <span >
-                     <ul><input type = "checkbox" />
+                     <ul><input type = "checkbox" ng-model="newItem.bought" />
                         {{prod.name}}
                         {{prod.description}}
                         {{prod.quantity}}

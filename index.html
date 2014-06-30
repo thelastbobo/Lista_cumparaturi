@@ -1,20 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
     <head>
 
     </head>
-    <body ng-app>
-    <div >
-        <h2 align="center">Lista Cumparaturi</h2>
-    </div>
-    <div ng-controller ="listController" align="center" >
-        Name:{{product.Name}}
-    </div>
-    <div align="center">
-        Description:{{product.Name}}
-    </div>
+    <body ng-app="list">
+        <form ng-controller="listController">
+
+            <div >
+                    <h2 >Lista Cumparaturi</h2>
+            </div>
+            <div>
+                <span ng-repeat="prod in products"  >
+                    <ul>    {{prod.name}}
+                            {{prod.description}}
+                            {{prod.quantity}}
+                            {{prod.price}}
+                            <button id="edit" type="button" ng-click="edit_button()">Edit</button>
+                    </ul>
+                    <span ng-show = "edit">
+                    Name:       <input type = "text" ng-model = "prod.name" />
+                    Description:<input type = "text" ng-model = "prod.description"/>
+                    Quantity:   <input type = "number" ng-model = "prod.quantity"/>
+                    Price:      <input type = "number" ng-model = "prod.price"/>
+                    </span>
+                </span>
+
+            </div>
+            <div>
+                <button ng-click = "add_button()">Add</button><br />
+                <span ng-show = "add">
+                Name:        <input type="text" ng-model="newItem.name" />{{newItem.name}} <br />
+                Description: <input type="text" ng-model="newItem.description" />{{newItem.description}} <br />
+                Quantity:    <input type="number" ng-model="newItem.quantity" required /><br />
+                Price:       <input type="number" ng-model="newItem.price" required /> <br />
+                <button ng-click = "addItem()">Ok</button>
+                </span>
+            </div>
+        </form>
 
     <script type="text/javascript" src="JavaScript/angular.js"></script>
     <script type="text/javascript" src="JavaScript/script.js"></script>
+    <script type="text/javascript" src="CSS/stylesheet.css"></script>
     </body>
 </html>

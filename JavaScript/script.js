@@ -21,11 +21,18 @@ angular.module('list', []).controller('listController', function($scope) {
             name: '',
             description: '',
             quantity: 0,
-            price: 0
+            price: 0,
+            bought: false
         };
 
     };
-
+    $scope.remove = function(){
+        var oldItems = $scope.products;
+        $scope.products = [];
+        angular.forEach(oldItems, function(product) {
+            if (!product.bought) $scope.products.push(product);
+        });
+    };
 
     $scope.add_button = function(){
         $scope.add = !$scope.add;

@@ -9,7 +9,6 @@
             <div >
                     <h2 >Lista Cumparaturi</h2>
             </div>
-            <div class="container" >
                 <span >
                      <ul ng-repeat="prod in products">
                          <input type = "checkbox" ng-model="prod.bought" />
@@ -34,7 +33,8 @@
 
             </div>
             <div>
-                <button ng-click = "add_button()">Add</button><br />
+                <button ng-click = "add_button()">Add</button>
+                <button ng-click = "remove()">Remove</button><br />
                 <span ng-show = "add" ng-submit="addItem()">
                     Name:        <input type="text" ng-model="newItem.name" placeholder="Name" />{{newItem.name}}   <br />
                     Description: <input type="text" ng-model="newItem.description" placeholder="Description" />{{newItem.description}}  <br />

@@ -5,12 +5,15 @@
     </head>
     <body ng-app="list">
         <form ng-controller="listController">
-
             <div >
                     <h2 >Lista Cumparaturi</h2>
             </div>
+            <div>
+                <label>Search:</label>
+                <input type="search" ng-model="search" placeholder="Enter to Search">
+            </div>
                 <span >
-                     <ul ng-repeat="prod in products">
+                     <ul ng-repeat="prod in products | filter:search ">
                          <input type = "checkbox" ng-model="prod.bought" />
                              <span ng-hide="editing" ng-click="editing = true" ng-class="{cut: prod.bought}">
                                 Name:        {{prod.name}}|

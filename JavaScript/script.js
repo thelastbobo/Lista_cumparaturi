@@ -26,10 +26,6 @@ angular.module('list', []).controller('listController', function($scope) {
 
     };
 
-    $scope.boughtItem = function(){
-
-
-    }
 
     $scope.add_button = function(){
         $scope.add = !$scope.add;

@@ -4,49 +4,49 @@
         <link rel="stylesheet" type="text/css" href = "CSS/stylesheet.css"/>
     </head>
     <body ng-app="list">
-        <form ng-controller="listController">
-            <div >
-                    <h2 >Lista Cumparaturi</h2>
-            </div>
-            <div>
-                <label>Search:</label>
-                <input type="search" ng-model="search" placeholder="Enter to Search">
-            </div>
-                <span >
-                     <ul ng-repeat="prod in products | filter:search ">
-                         <input type = "checkbox" ng-model="prod.bought" />
-                             <span ng-hide="editing" ng-click="editing = true" ng-class="{cut: prod.bought}">
+    <form ng-controller="listController">
+        <div >
+            <h2 >Lista Cumparaturi</h2>
+        </div>
+        <div>
+            <label>Search:</label>
+            <input type="search" ng-model="search" placeholder="Enter to Search">
+        </div>
+            <span >
+                 <ul ng-repeat="prod in products | filter:search ">
+                     <input type = "checkbox" ng-model="prod.bought" />
+                     <span ng-hide="editing" ng-click="editing = true" ng-class="{cut: prod.bought}">
                                 Name:        {{prod.name}}|
                                 Description: {{prod.description}}|
                                 Quantity:    {{prod.quantity}}|
                                 Price:       {{prod.price}}
-                              </span>
-                             <button  id="edit" type="submit" ng-hide="editing" ng-click="editing = true">Edit</button>
-                         <span ng-show="editing" ng-submit="editing = false">
-                                Name:       <input type = "text" ng-model = "prod.name" placeholder="Name" />
-                                Description:<input type = "text" ng-model = "prod.description" placeholder="Description"/>
-                                Quantity:   <input type = "number" ng-model = "prod.quantity" placeholder="Quantity"/>
-                                Price:      <input type = "number" ng-model = "prod.price" placeholder="Price"/>
-                               <button ng-show="editing" ng-click="editing = false"  type="submit">Save</button>
-                         </span>
+                     </span>
+                     <button  id="edit" type="submit" ng-hide="editing" ng-click="editing = true">Edit</button>
+                     <span ng-show="editing" ng-submit="editing = false">
+                            Name:       <input type = "text" ng-model = "prod.name" placeholder="Name" />
+                            Description:<input type = "text" ng-model = "prod.description" placeholder="Description"/>
+                            Quantity:   <input type = "number" ng-model = "prod.quantity" placeholder="Quantity"/>
+                            Price:      <input type = "number" ng-model = "prod.price" placeholder="Price"/>
+                           <button ng-show="editing" ng-click="editing = false"  type="submit">Save</button>
+                     </span>
 
-                    </ul>
-                </span>
+                 </ul>
+            </span>
 
 
-            </div>
-            <div>
-                <button ng-click = "add_button()">Add</button>
-                <button ng-click = "remove()">Remove</button><br />
-                <span ng-show = "add" ng-submit="addItem()">
-                    Name:        <input type="text" ng-model="newItem.name" placeholder="Name" />{{newItem.name}}   <br />
-                    Description: <input type="text" ng-model="newItem.description" placeholder="Description" />{{newItem.description}}  <br />
-                    Quantity:    <input type="number" ng-model="newItem.quantity" placeholder="Quantity" required /><br />
-                    Price:       <input type="number" ng-model="newItem.price" placeholder="Price" required /> <br />
-                    <button ng-click = "addItem()">Ok</button>
-                </span>
-            </div>
-        </form>
+        </div>
+        <div>
+            <button ng-click = "add_button()">Add</button>
+            <button ng-click = "remove()">Remove</button><br />
+                    <span ng-show = "add" ng-submit="addItem()">
+                        Name:        <input type="text" ng-model="newItem.name" placeholder="Name" />{{newItem.name}}   <br />
+                        Description: <input type="text" ng-model="newItem.description" placeholder="Description" />{{newItem.description}}  <br />
+                        Quantity:    <input type="number" ng-model="newItem.quantity" placeholder="Quantity" required /><br />
+                        Price:       <input type="number" ng-model="newItem.price" placeholder="Price" required /> <br />
+                        <button ng-click = "addItem()">Ok</button>
+                    </span>
+        </div>
+    </form>
 
     <script type="text/javascript" src="JavaScript/angular.js"></script>
     <script type="text/javascript" src="JavaScript/script.js"></script>

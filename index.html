@@ -6,22 +6,23 @@
     <body ng-app="list">
     <form ng-controller="listController">
         <div >
-            <h2 >Lista Cumparaturi</h2>
+            <h2 >Shopping List</h2>
         </div>
         <div>
             <label>Search:</label>
             <input type="search" ng-model="search" placeholder="Enter to Search">
         </div>
             <span >
-                 <ul ng-repeat="prod in products | filter:search ">
+                 <ul  ng-repeat="prod in products | filter:search ">
                      <input type = "checkbox" ng-model="prod.bought" />
-                     <span ng-hide="editing" ng-click="editing = true" ng-class="{cut: prod.bought}">
+                     <span class="list" ng-hide="editing" ng-click="editing = true" ng-class="{cut: prod.bought}">
                                 Name:        {{prod.name}}|
                                 Description: {{prod.description}}|
                                 Quantity:    {{prod.quantity}}|
                                 Price:       {{prod.price}}
+                                <button  id="edit" type="submit" >Edit</button>
                      </span>
-                     <button  id="edit" type="submit" ng-hide="editing" ng-click="editing = true">Edit</button>
+
                      <span ng-show="editing" ng-submit="editing = false">
                             Name:       <input type = "text" ng-model = "prod.name" placeholder="Name" />
                             Description:<input type = "text" ng-model = "prod.description" placeholder="Description"/>
